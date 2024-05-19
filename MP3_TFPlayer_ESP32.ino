@@ -1,3 +1,9 @@
+/*****************************************************************************************************************************
+**********************************    Author  : Ehab Magdy Abdullah                      *************************************
+**********************************    Linkedin: https://www.linkedin.com/in/ehabmagdyy/  *************************************
+**********************************    Youtube : https://www.youtube.com/@EhabMagdyy      *************************************
+******************************************************************************************************************************/
+
 #include "SoftwareSerial.h"
 #include "DFRobotDFPlayerMini.h"
 
@@ -32,7 +38,7 @@ void setup()
   pinMode(PAUSE_PIN, INPUT);
   pinMode(PREV_PIN, INPUT);
 
-  player.volume(20);
+  player.volume(30);
   player.play(1);
 }
 
@@ -43,7 +49,7 @@ void loop()
     if(ADCReadCounter > 10000)
     {
         analogValue = analogRead(POTENTIOMETER_PIN);
-        volume = map(analogValue, 0, 1023, 0, 20);      /* You can map it to the max -> 30 not 20 */
+        volume = map(analogValue, 0, 4095, 0, 30);
         player.volume(volume);
         ADCReadCounter = 0;
     }
